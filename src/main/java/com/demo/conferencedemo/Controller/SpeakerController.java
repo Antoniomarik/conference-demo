@@ -2,6 +2,7 @@ package com.demo.conferencedemo.Controller;
 
 import com.demo.conferencedemo.Entity.Speaker;
 import com.demo.conferencedemo.Repository.SpeakerRepository;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/speakers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SpeakerController {
 
     @Autowired

@@ -1,5 +1,6 @@
 package com.demo.conferencedemo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
 @Table(name ="sessions")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Session {
 
     @Id
@@ -21,7 +23,7 @@ public class Session {
 
     @ManyToMany
     @JoinTable(name = "session_speakers",
-            joinColumns = @JoinColumn(name = "session_id"),
+            joinColumns = @JoinColumn(name = "sesison_id"),
             inverseJoinColumns = @JoinColumn(name = "speaker_id"))
     private List<Speaker> speakers;
 }
